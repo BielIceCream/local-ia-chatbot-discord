@@ -1,0 +1,23 @@
+{
+  "name": "discord-bot",
+  "version": "1.0.0",
+  "description": "Bot de Discord completo e modular: moderacao, tickets, economia, XP e um motor de respostas algoritmico leve (sem IA generativa, sem dependencias nativas) - pensado para rodar em hospedagens com pouca RAM como a Discloud (100MB).",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js",
+    "register": "node src/handlers/registerCommands.js",
+    "clear-commands": "node src/handlers/clearCommands.js",
+    "generate-key": "node src/utils/generateEncryptionKey.js",
+    "test": "node tests/run.js"
+  },
+  "engines": {
+    "node": ">=18.17.0"
+  },
+  "dependencies": {
+    "discord.js": "^14.16.3",
+    "dotenv": "^16.4.5"
+  },
+  "license": "MIT"
+}

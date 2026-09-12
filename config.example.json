@@ -1,0 +1,46 @@
+{
+  "defaultLanguage": "pt-BR",
+  "embedColor": "#5865F2",
+  "errorColor": "#ED4245",
+  "successColor": "#57F287",
+  "relevance": {
+    "threshold": 60,
+    "mentionScore": 100,
+    "replyToBotScore": 80,
+    "directQuestionScore": 60,
+    "keywordScore": 40,
+    "systemTopicScore": 20,
+    "fastConversationPenalty": -50,
+    "silentChannelPenalty": -100,
+    "recentReplyPenalty": -100,
+    "spamPenalty": -100,
+    "recentReplyCooldownMs": 20000,
+    "fastConversationWindowMs": 8000,
+    "fastConversationMessageCount": 5
+  },
+  "context": {
+    "maxMessagesPerChannel": 15,
+    "expirationMs": 1800000,
+    "cleanupIntervalMs": 300000,
+    "maxPromptChars": 2000
+  },
+  "ai": {
+    "enabled": true,
+    "personality": "Voce e um assistente de Discord amigavel, descontraido e util. Voce faz parte deste servidor. Responda de maneira natural e curta. Nao interrompa conversas sem necessidade.",
+    "maxReplyLength": 400,
+    "temperature": 0.8
+  },
+  "cooldowns": {
+    "aiPerUserMs": 8000,
+    "aiPerChannelMs": 3000,
+    "commandPerUserMs": 2000
+  },
+  "spending": {
+    "groq": {
+      "pricePerMillionInputUSD": 0.05,
+      "pricePerMillionOutputUSD": 0.08,
+      "usdToBrlRate": 5.5,
+      "monthlyLimitBRL": 0.5
+    }
+  }
+}

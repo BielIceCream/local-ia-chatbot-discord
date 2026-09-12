@@ -1,0 +1,36 @@
+# Exemplo de unit systemd para rodar o bot 24/7 (item 24).
+# Copie para /etc/systemd/system/discord-bot.service no servidor, ajuste os
+# caminhos/usuario, depois:
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable discord-bot
+#   sudo systemctl start discord-bot
+#
+# O sandboxing abaixo aplica o principio de "menor privilegio necessario"
+# (item 25): o processo do bot roda como usuario dedicado sem privilegios
+# administrativos, sem acesso de escrita ao sistema fora das pastas
+# data/ e logs/, e sem poder escalar privilegios.
+
+[Unit]
+Description=Discord Bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=discordbot
+Group=discordbot
+WorkingDirectory=/opt/discord-bot
+ExecStart=/usr/bin/node index.js
+Restart=on-failure
+RestartSec=5
+EnvironmentFile=/opt/discord-bot/.env
+
+# Hardening (item 25): o bot nao deve ter permissoes alem do necessario
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/discord-bot/data /opt/discord-bot/logs
+
+[Install]
+WantedBy=multi-user.target
