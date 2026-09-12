@@ -65,7 +65,7 @@ Controlado por `AI_PROVIDER` no `.env`:
 ## 🚀 Início rápido
 
 ```bash
-git clone https://github.com/seu-usuario/discord-bot.git
+git clone https://github.com/BielIceCream/local-ia-chatbot-discord.git
 cd discord-bot
 npm install
 cp .env.example .env
